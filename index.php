@@ -1,0 +1,62 @@
+<?php  
+
+require_once 'urunler.php';
+
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  <title>Üyeliksiz Sepet İşlemleri</title>
+</head>
+<body>
+  <hr>
+  <div class="container">
+    <h2>Ürünler</h2> <small class="badge badge-success">Sepette <?php echo count($_COOKIE['sepet']) ?> ürün var!</small>
+    <hr>
+
+
+    <div class="row">
+
+      <?php  
+
+      foreach ($urunler as $key) { ?>
+        
+        <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="<?php echo $key['resim'] ?>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><?php echo $key['ad'] ?></h5>
+            <p class="card-text"><?php echo $key['fiyat'] ?> TL</p>
+            <a href="islem.php?sepetEkle=1&id=<?php echo $key['id'] ?>&adet=1" class="btn btn-primary">Sepete Ekle</a>
+          </div>
+        </div>
+        
+      </div>
+
+      <?php }
+
+      ?>
+
+      
+      
+    </div>
+    
+
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
